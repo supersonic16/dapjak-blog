@@ -1,1 +1,1 @@
-web: gunicorn dapjak-blog.wsgi --log-file -
+web: gunicorn dapjak.wsgi --log-file -
