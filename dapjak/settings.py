@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 SECRET_KEY = 'bnt%ll6lien&0^hs15%pd^xg0m6_x_+il#j^km&88h3@-2gr4s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 ALLOWED_HOSTS=[]
 # Application definition
 
@@ -76,19 +76,27 @@ MEDIA_URL = '/media/'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-        'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blog',
-        'USER': 'root',
-        'PASSWORD': 'malecode',
-        'HOST': '134.209.158.175',
-        'POST': '22'
-    }
-}
-# Password validation
+# DATABASES = {
+#         'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'blog',
+#         'USER': 'root',
+#         'PASSWORD': 'malecode',
+#         'HOST': '134.209.158.175',
+#         'POST': '22'
+#     }
+# }
+# # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
+SECRET_KEY = config('SECRET_KEY')
 
+DEBUG = config('DEBUG', default=False, cast=bool)
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
