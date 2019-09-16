@@ -88,9 +88,8 @@ MEDIA_URL = '/media/'
 # }
 # # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
-# SECRET_KEY = config('SECRET_KEY')
-
-# DEBUG = config('DEBUG', default=False, cast=bool)
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 DATABASES = {
     'default': dj_database_url.config(
