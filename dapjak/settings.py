@@ -78,26 +78,20 @@ MEDIA_URL = '/media/'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#         'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'blog',
-#         'USER': 'root',
-#         'PASSWORD': 'malecode',
-#         'HOST': '134.209.158.175',
-#         'POST': '22'
-#     }
-# }
+DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'root',
+        'PASSWORD': 'malecode',
+          }
+}
 # # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 # SECRET_KEY = config('SECRET_KEY')
 # DEBUG = config('DEBUG', default=False, cast=bool)
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
-}
+DATABASES = {'default': dj_database_url.config()}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
